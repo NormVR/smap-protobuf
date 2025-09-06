@@ -17,13 +17,5 @@ message CreateUserRequest {
 }
 
 message CreateUserResponse {
-  User user = 1;
-}
-
-message User {
-  string id = 1;
-  string email = 2;
-  string username = 3;
-  string first_name = 4;
-  string last_name = 5;
+  int64 user_id = 1;
 }

@@ -7,6 +7,7 @@ option go_package = "smap/shared/gen/user_service;user_service";
 service AuthService {
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
   rpc Login(LoginRequest) returns (LoginResponse);
+  rpc ValidateToken(TokenRequest) returns (UserResponse);
 }
 
 message CreateUserRequest {
@@ -28,4 +29,12 @@ message LoginRequest {
 
 message LoginResponse {
   string jwt_token = 1;
+}
+
+message TokenRequest {
+  string jwt_token = 1;
+}
+
+message UserResponse {
+  int64 user_id = 1;
 }

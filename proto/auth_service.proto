@@ -4,10 +4,13 @@ package auth_service;
 
 option go_package = "smap/shared/gen/user_service;user_service";
 
+import "google/protobuf/empty.proto";
+
 service AuthService {
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
   rpc Login(LoginRequest) returns (LoginResponse);
   rpc ValidateToken(TokenRequest) returns (UserResponse);
+  rpc Logout(TokenRequest) returns (google.protobuf.Empty);
 }
 
 message CreateUserRequest {

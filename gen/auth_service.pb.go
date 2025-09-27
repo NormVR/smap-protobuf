@@ -9,6 +9,7 @@ package user_service
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -329,7 +330,7 @@ var File_auth_service_proto protoreflect.FileDescriptor
 
 const file_auth_service_proto_rawDesc = "" +
 	"\n" +
-	"\x12auth_service.proto\x12\fauth_service\"\x9d\x01\n" +
+	"\x12auth_service.proto\x12\fauth_service\x1a\x1bgoogle/protobuf/empty.proto\"\x9d\x01\n" +
 	"\x11CreateUserRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x1a\n" +
@@ -347,12 +348,13 @@ const file_auth_service_proto_rawDesc = "" +
 	"\fTokenRequest\x12\x1b\n" +
 	"\tjwt_token\x18\x01 \x01(\tR\bjwtToken\"'\n" +
 	"\fUserResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x03R\x06userId2\xe9\x01\n" +
+	"\auser_id\x18\x01 \x01(\x03R\x06userId2\xa7\x02\n" +
 	"\vAuthService\x12O\n" +
 	"\n" +
 	"CreateUser\x12\x1f.auth_service.CreateUserRequest\x1a .auth_service.CreateUserResponse\x12@\n" +
 	"\x05Login\x12\x1a.auth_service.LoginRequest\x1a\x1b.auth_service.LoginResponse\x12G\n" +
-	"\rValidateToken\x12\x1a.auth_service.TokenRequest\x1a\x1a.auth_service.UserResponseB+Z)smap/shared/gen/user_service;user_serviceb\x06proto3"
+	"\rValidateToken\x12\x1a.auth_service.TokenRequest\x1a\x1a.auth_service.UserResponse\x12<\n" +
+	"\x06Logout\x12\x1a.auth_service.TokenRequest\x1a\x16.google.protobuf.EmptyB+Z)smap/shared/gen/user_service;user_serviceb\x06proto3"
 
 var (
 	file_auth_service_proto_rawDescOnce sync.Once
@@ -374,16 +376,19 @@ var file_auth_service_proto_goTypes = []any{
 	(*LoginResponse)(nil),      // 3: auth_service.LoginResponse
 	(*TokenRequest)(nil),       // 4: auth_service.TokenRequest
 	(*UserResponse)(nil),       // 5: auth_service.UserResponse
+	(*emptypb.Empty)(nil),      // 6: google.protobuf.Empty
 }
 var file_auth_service_proto_depIdxs = []int32{
 	0, // 0: auth_service.AuthService.CreateUser:input_type -> auth_service.CreateUserRequest
 	2, // 1: auth_service.AuthService.Login:input_type -> auth_service.LoginRequest
 	4, // 2: auth_service.AuthService.ValidateToken:input_type -> auth_service.TokenRequest
-	1, // 3: auth_service.AuthService.CreateUser:output_type -> auth_service.CreateUserResponse
-	3, // 4: auth_service.AuthService.Login:output_type -> auth_service.LoginResponse
-	5, // 5: auth_service.AuthService.ValidateToken:output_type -> auth_service.UserResponse
-	3, // [3:6] is the sub-list for method output_type
-	0, // [0:3] is the sub-list for method input_type
+	4, // 3: auth_service.AuthService.Logout:input_type -> auth_service.TokenRequest
+	1, // 4: auth_service.AuthService.CreateUser:output_type -> auth_service.CreateUserResponse
+	3, // 5: auth_service.AuthService.Login:output_type -> auth_service.LoginResponse
+	5, // 6: auth_service.AuthService.ValidateToken:output_type -> auth_service.UserResponse
+	6, // 7: auth_service.AuthService.Logout:output_type -> google.protobuf.Empty
+	4, // [4:8] is the sub-list for method output_type
+	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name

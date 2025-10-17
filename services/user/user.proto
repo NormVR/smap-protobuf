@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package auth_service;
+
+option go_package = "services/user_service;user_service";
+
+import "google/protobuf/empty.proto";
+
+service UserService {
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  rpc UpdateUser(UpdateUserRequest) returns (google.protobuf.Empty);
+}
+
+message GetUserRequest {
+  int64 user_id = 1;
+}
+
+message GetUserResponse {
+  int64 user_id = 1;
+  string email = 2;
+  string username = 3;
+  string firstname = 4;
+  string lastname = 5;
+}
+
+message UpdateUserRequest {
+  int64 user_id = 1;
+  string firstname = 2;
+  string lastname = 3;
+}

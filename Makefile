@@ -1,12 +1,26 @@
 PROTO_DIR=proto
 GEN_DIR=gen
 
-proto-gen:
+generate:
 	rm -rf $(GEN_DIR)/*
 	
-	protoc -I=$(PROTO_DIR) \
-		--go_out=$(GEN_DIR) --go_opt=paths=source_relative \
-		--go-grpc_out=$(GEN_DIR) --go-grpc_opt=paths=source_relative \
-		$(PROTO_DIR)/auth_service.proto $(PROTO_DIR)/auth_service.proto
+	protoc --proto_path=./services \
+		--go_out=./gen \
+		--go-grpc_out=./gen \
+		./services/auth/*.proto \
+		./services/user/*.proto
 	
 	@echo "Proto files generated successfully!"
+
+validate:
+	@echo "Validating proto files..."
+	protoc --proto_path=./services \
+		--validate_out="lang=go:./gen" \
+		./services/auth/*.proto \
+		./services/user/*.proto
+	@echo "✓ Validation completed"
+
+help:
+	@echo "Available targets:"
+	@echo "  generate  - Generate proto code"
+	@echo "  validate  - Validate proto files"

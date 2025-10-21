@@ -73,6 +73,13 @@ type GetUserResponse struct {
 	Username      string                 `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
 	Firstname     string                 `protobuf:"bytes,4,opt,name=firstname,proto3" json:"firstname,omitempty"`
 	Lastname      string                 `protobuf:"bytes,5,opt,name=lastname,proto3" json:"lastname,omitempty"`
+	Bio           string                 `protobuf:"bytes,6,opt,name=bio,proto3" json:"bio,omitempty"`
+	AvatarUrl     string                 `protobuf:"bytes,7,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
+	Website       string                 `protobuf:"bytes,8,opt,name=website,proto3" json:"website,omitempty"`
+	Location      string                 `protobuf:"bytes,9,opt,name=location,proto3" json:"location,omitempty"`
+	BirthDate     string                 `protobuf:"bytes,10,opt,name=birth_date,json=birthDate,proto3" json:"birth_date,omitempty"`
+	Gender        string                 `protobuf:"bytes,11,opt,name=gender,proto3" json:"gender,omitempty"`
+	Telephone     string                 `protobuf:"bytes,12,opt,name=telephone,proto3" json:"telephone,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -142,11 +149,67 @@ func (x *GetUserResponse) GetLastname() string {
 	return ""
 }
 
+func (x *GetUserResponse) GetBio() string {
+	if x != nil {
+		return x.Bio
+	}
+	return ""
+}
+
+func (x *GetUserResponse) GetAvatarUrl() string {
+	if x != nil {
+		return x.AvatarUrl
+	}
+	return ""
+}
+
+func (x *GetUserResponse) GetWebsite() string {
+	if x != nil {
+		return x.Website
+	}
+	return ""
+}
+
+func (x *GetUserResponse) GetLocation() string {
+	if x != nil {
+		return x.Location
+	}
+	return ""
+}
+
+func (x *GetUserResponse) GetBirthDate() string {
+	if x != nil {
+		return x.BirthDate
+	}
+	return ""
+}
+
+func (x *GetUserResponse) GetGender() string {
+	if x != nil {
+		return x.Gender
+	}
+	return ""
+}
+
+func (x *GetUserResponse) GetTelephone() string {
+	if x != nil {
+		return x.Telephone
+	}
+	return ""
+}
+
 type UpdateUserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        int64                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Firstname     string                 `protobuf:"bytes,2,opt,name=firstname,proto3" json:"firstname,omitempty"`
 	Lastname      string                 `protobuf:"bytes,3,opt,name=lastname,proto3" json:"lastname,omitempty"`
+	Bio           string                 `protobuf:"bytes,4,opt,name=bio,proto3" json:"bio,omitempty"`
+	AvatarUrl     string                 `protobuf:"bytes,5,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
+	Website       string                 `protobuf:"bytes,6,opt,name=website,proto3" json:"website,omitempty"`
+	Location      string                 `protobuf:"bytes,7,opt,name=location,proto3" json:"location,omitempty"`
+	BirthDate     string                 `protobuf:"bytes,8,opt,name=birth_date,json=birthDate,proto3" json:"birth_date,omitempty"`
+	Gender        string                 `protobuf:"bytes,9,opt,name=gender,proto3" json:"gender,omitempty"`
+	Telephone     string                 `protobuf:"bytes,10,opt,name=telephone,proto3" json:"telephone,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -202,23 +265,92 @@ func (x *UpdateUserRequest) GetLastname() string {
 	return ""
 }
 
+func (x *UpdateUserRequest) GetBio() string {
+	if x != nil {
+		return x.Bio
+	}
+	return ""
+}
+
+func (x *UpdateUserRequest) GetAvatarUrl() string {
+	if x != nil {
+		return x.AvatarUrl
+	}
+	return ""
+}
+
+func (x *UpdateUserRequest) GetWebsite() string {
+	if x != nil {
+		return x.Website
+	}
+	return ""
+}
+
+func (x *UpdateUserRequest) GetLocation() string {
+	if x != nil {
+		return x.Location
+	}
+	return ""
+}
+
+func (x *UpdateUserRequest) GetBirthDate() string {
+	if x != nil {
+		return x.BirthDate
+	}
+	return ""
+}
+
+func (x *UpdateUserRequest) GetGender() string {
+	if x != nil {
+		return x.Gender
+	}
+	return ""
+}
+
+func (x *UpdateUserRequest) GetTelephone() string {
+	if x != nil {
+		return x.Telephone
+	}
+	return ""
+}
+
 var File_user_user_proto protoreflect.FileDescriptor
 
 const file_user_user_proto_rawDesc = "" +
 	"\n" +
 	"\x0fuser/user.proto\x12\fauth_service\x1a\x1bgoogle/protobuf/empty.proto\")\n" +
 	"\x0eGetUserRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x03R\x06userId\"\x96\x01\n" +
+	"\auser_id\x18\x01 \x01(\x03R\x06userId\"\xd2\x02\n" +
 	"\x0fGetUserResponse\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\x03R\x06userId\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1a\n" +
 	"\busername\x18\x03 \x01(\tR\busername\x12\x1c\n" +
 	"\tfirstname\x18\x04 \x01(\tR\tfirstname\x12\x1a\n" +
-	"\blastname\x18\x05 \x01(\tR\blastname\"f\n" +
+	"\blastname\x18\x05 \x01(\tR\blastname\x12\x10\n" +
+	"\x03bio\x18\x06 \x01(\tR\x03bio\x12\x1d\n" +
+	"\n" +
+	"avatar_url\x18\a \x01(\tR\tavatarUrl\x12\x18\n" +
+	"\awebsite\x18\b \x01(\tR\awebsite\x12\x1a\n" +
+	"\blocation\x18\t \x01(\tR\blocation\x12\x1d\n" +
+	"\n" +
+	"birth_date\x18\n" +
+	" \x01(\tR\tbirthDate\x12\x16\n" +
+	"\x06gender\x18\v \x01(\tR\x06gender\x12\x1c\n" +
+	"\ttelephone\x18\f \x01(\tR\ttelephone\"\xa2\x02\n" +
 	"\x11UpdateUserRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\x03R\x06userId\x12\x1c\n" +
 	"\tfirstname\x18\x02 \x01(\tR\tfirstname\x12\x1a\n" +
-	"\blastname\x18\x03 \x01(\tR\blastname2\x9c\x01\n" +
+	"\blastname\x18\x03 \x01(\tR\blastname\x12\x10\n" +
+	"\x03bio\x18\x04 \x01(\tR\x03bio\x12\x1d\n" +
+	"\n" +
+	"avatar_url\x18\x05 \x01(\tR\tavatarUrl\x12\x18\n" +
+	"\awebsite\x18\x06 \x01(\tR\awebsite\x12\x1a\n" +
+	"\blocation\x18\a \x01(\tR\blocation\x12\x1d\n" +
+	"\n" +
+	"birth_date\x18\b \x01(\tR\tbirthDate\x12\x16\n" +
+	"\x06gender\x18\t \x01(\tR\x06gender\x12\x1c\n" +
+	"\ttelephone\x18\n" +
+	" \x01(\tR\ttelephone2\x9c\x01\n" +
 	"\vUserService\x12F\n" +
 	"\aGetUser\x12\x1c.auth_service.GetUserRequest\x1a\x1d.auth_service.GetUserResponse\x12E\n" +
 	"\n" +

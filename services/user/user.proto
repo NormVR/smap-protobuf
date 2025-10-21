@@ -21,10 +21,24 @@ message GetUserResponse {
   string username = 3;
   string firstname = 4;
   string lastname = 5;
+  string bio = 6;
+  string avatar_url = 7;
+  string website = 8;
+  string location = 9;
+  string birth_date = 10;
+  string gender = 11;
+  string telephone = 12;
 }
 
 message UpdateUserRequest {
   int64 user_id = 1;
   string firstname = 2;
   string lastname = 3;
+  string bio = 4;
+  string avatar_url = 5;
+  string website = 6;
+  string location = 7;
+  string birth_date = 8;
+  string gender = 9;
+  string telephone = 10;
 }

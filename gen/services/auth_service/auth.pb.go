@@ -76,7 +76,7 @@ func (x *CreateUserRequest) GetPassword() string {
 
 type CreateUserResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        int64                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -111,11 +111,11 @@ func (*CreateUserResponse) Descriptor() ([]byte, []int) {
 	return file_auth_auth_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CreateUserResponse) GetUserId() int64 {
+func (x *CreateUserResponse) GetUserId() string {
 	if x != nil {
 		return x.UserId
 	}
-	return 0
+	return ""
 }
 
 type LoginRequest struct {
@@ -260,7 +260,7 @@ func (x *TokenRequest) GetJwtToken() string {
 
 type UserResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        int64                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -295,11 +295,11 @@ func (*UserResponse) Descriptor() ([]byte, []int) {
 	return file_auth_auth_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *UserResponse) GetUserId() int64 {
+func (x *UserResponse) GetUserId() string {
 	if x != nil {
 		return x.UserId
 	}
-	return 0
+	return ""
 }
 
 var File_auth_auth_proto protoreflect.FileDescriptor
@@ -311,7 +311,7 @@ const file_auth_auth_proto_rawDesc = "" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\"-\n" +
 	"\x12CreateUserResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x03R\x06userId\"@\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\"@\n" +
 	"\fLoginRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\",\n" +
@@ -320,7 +320,7 @@ const file_auth_auth_proto_rawDesc = "" +
 	"\fTokenRequest\x12\x1b\n" +
 	"\tjwt_token\x18\x01 \x01(\tR\bjwtToken\"'\n" +
 	"\fUserResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x03R\x06userId2\xa7\x02\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId2\xa7\x02\n" +
 	"\vAuthService\x12O\n" +
 	"\n" +
 	"CreateUser\x12\x1f.auth_service.CreateUserRequest\x1a .auth_service.CreateUserResponse\x12@\n" +

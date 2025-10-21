@@ -24,7 +24,7 @@ const (
 
 type GetUserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        int64                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -59,16 +59,16 @@ func (*GetUserRequest) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GetUserRequest) GetUserId() int64 {
+func (x *GetUserRequest) GetUserId() string {
 	if x != nil {
 		return x.UserId
 	}
-	return 0
+	return ""
 }
 
 type GetUserResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        int64                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	Username      string                 `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
 	Firstname     string                 `protobuf:"bytes,4,opt,name=firstname,proto3" json:"firstname,omitempty"`
@@ -114,11 +114,11 @@ func (*GetUserResponse) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetUserResponse) GetUserId() int64 {
+func (x *GetUserResponse) GetUserId() string {
 	if x != nil {
 		return x.UserId
 	}
-	return 0
+	return ""
 }
 
 func (x *GetUserResponse) GetEmail() string {
@@ -200,7 +200,7 @@ func (x *GetUserResponse) GetTelephone() string {
 
 type UpdateUserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        int64                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Firstname     string                 `protobuf:"bytes,2,opt,name=firstname,proto3" json:"firstname,omitempty"`
 	Lastname      string                 `protobuf:"bytes,3,opt,name=lastname,proto3" json:"lastname,omitempty"`
 	Bio           string                 `protobuf:"bytes,4,opt,name=bio,proto3" json:"bio,omitempty"`
@@ -244,11 +244,11 @@ func (*UpdateUserRequest) Descriptor() ([]byte, []int) {
 	return file_user_user_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *UpdateUserRequest) GetUserId() int64 {
+func (x *UpdateUserRequest) GetUserId() string {
 	if x != nil {
 		return x.UserId
 	}
-	return 0
+	return ""
 }
 
 func (x *UpdateUserRequest) GetFirstname() string {
@@ -320,9 +320,9 @@ const file_user_user_proto_rawDesc = "" +
 	"\n" +
 	"\x0fuser/user.proto\x12\fauth_service\x1a\x1bgoogle/protobuf/empty.proto\")\n" +
 	"\x0eGetUserRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x03R\x06userId\"\xd2\x02\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\"\xd2\x02\n" +
 	"\x0fGetUserResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x03R\x06userId\x12\x14\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1a\n" +
 	"\busername\x18\x03 \x01(\tR\busername\x12\x1c\n" +
 	"\tfirstname\x18\x04 \x01(\tR\tfirstname\x12\x1a\n" +
@@ -338,7 +338,7 @@ const file_user_user_proto_rawDesc = "" +
 	"\x06gender\x18\v \x01(\tR\x06gender\x12\x1c\n" +
 	"\ttelephone\x18\f \x01(\tR\ttelephone\"\xa2\x02\n" +
 	"\x11UpdateUserRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x03R\x06userId\x12\x1c\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1c\n" +
 	"\tfirstname\x18\x02 \x01(\tR\tfirstname\x12\x1a\n" +
 	"\blastname\x18\x03 \x01(\tR\blastname\x12\x10\n" +
 	"\x03bio\x18\x04 \x01(\tR\x03bio\x12\x1d\n" +

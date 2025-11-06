@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+package content_service;
+
+option go_package = "services/content_service;content_service";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+service PostService {
+  rpc CreatePost(CreatePostRequest) returns (Post);
+  rpc GetPost(GetPostRequest) returns (Post);
+  rpc UpdatePost(UpdatePostRequest) returns (Post);
+  rpc DeletePost(DeletePostRequest) returns (google.protobuf.Empty);
+  rpc ListUserPosts(ListUserPostsRequest) returns (PostListResponse);
+  rpc ListFeedPosts(ListFeedPostsRequest) returns (PostListResponse);
+
+  // Likes
+  rpc LikePost(LikeRequest) returns (google.protobuf.Empty);
+  rpc UnlikePost(UnlikeRequest) returns (google.protobuf.Empty);
+  rpc GetPostLikes(GetLikesRequest) returns (UserList);
+}
+
+message GetPostRequest {
+  string user_id = 1;
+  string post_id = 2;
+}
+
+message DeletePostRequest {
+  string user_id = 1;
+  string post_id = 2;
+}
+
+message UpdatePostRequest {
+  string user_id = 1;
+  string post_id = 2;
+  string title = 3;
+  string content = 4;
+  repeated string image_urls = 5;
+  string video_url = 6;
+  bool is_draft = 7;
+  bool is_public = 8;
+  bool allow_comments = 9;
+}
+
+message CreatePostRequest {
+  string user_id = 1;
+  string title = 2;
+  string content = 3;
+  repeated string image_urls = 4;
+  string video_url = 5;
+  bool is_draft = 6;
+  bool is_public = 7;
+  bool allow_comments = 8;
+}
+
+message Post {
+  string id = 1;
+  string user_id = 2;
+  string title = 3;
+  string content = 4;
+  string excerpt = 5;
+  repeated string image_urls = 6;
+  string video_url = 7;
+  int32 likes_count = 8;
+  int32 comments_count = 9;
+  int32 shares_count = 10;
+  int32 views_count = 11;
+  bool is_draft = 12;
+  bool is_public = 13;
+  bool allow_comments = 14;
+  google.protobuf.Timestamp created_at = 15;
+  google.protobuf.Timestamp updated_at = 16;
+  google.protobuf.Timestamp published_at = 17;
+  UserProfile author = 18;
+}
+
+message UserProfile {
+  string user_id = 1;
+  string username = 2;
+  string firstname = 3;
+  string lastname = 4;
+  string avatar_url = 5;
+}
+
+message ListUserPostsRequest {
+  string user_id = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  bool include_drafts = 4;
+}
+
+message ListFeedPostsRequest {
+  string user_id = 1;  // Reader User
+  int32 page = 2;
+  int32 page_size = 3;
+}
+
+message PostListResponse {
+  repeated Post posts = 1;
+  int32 total_count = 2;
+  int32 page = 3;
+  int32 page_size = 4;
+}
+
+message LikeRequest {
+  string post_id = 1;
+  string user_id = 2;
+}
+message UnlikeRequest {
+  string post_id = 1;
+  string user_id = 2;
+}
+message GetLikesRequest {
+  string post_id = 1;
+}
+
+message UserList {
+  repeated UserProfile user_profile = 1;
+}

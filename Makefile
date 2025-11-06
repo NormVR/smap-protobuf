@@ -8,7 +8,8 @@ generate:
 		--go_out=./gen \
 		--go-grpc_out=./gen \
 		./services/auth/*.proto \
-		./services/user/*.proto
+		./services/user/*.proto \
+		./services/content/*.proto
 	
 	@echo "Proto files generated successfully!"
 
@@ -17,7 +18,8 @@ validate:
 	protoc --proto_path=./services \
 		--validate_out="lang=go:./gen" \
 		./services/auth/*.proto \
-		./services/user/*.proto
+		./services/user/*.proto \
+		./services/content/*.proto
 	@echo "✓ Validation completed"
 
 help:

@@ -15,7 +15,8 @@ service AuthService {
 
 message CreateUserRequest {
   string email = 1;
-  string password = 2;
+  string username = 2;
+  string password = 3;
 }
 
 message CreateUserResponse {
